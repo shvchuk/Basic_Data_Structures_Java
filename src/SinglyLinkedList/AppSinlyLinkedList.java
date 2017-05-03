@@ -8,6 +8,7 @@ public class AppSinlyLinkedList {
         myList.insertFirst(50);
         myList.insertFirst(99);
         myList.insertFirst(88);
+        myList.insertLast(1111111111);
 
         myList.displayList();
 

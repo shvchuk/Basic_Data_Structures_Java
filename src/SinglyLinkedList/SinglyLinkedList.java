@@ -37,5 +37,15 @@ public class SinglyLinkedList<T extends Comparable<T>> {
         System.out.println();
     }
 
+    // inserting new Node at the end of the list
+    public void insertLast(T data){
+        Node current = first;
+        while(current.nextNode != null){
+            current = current.nextNode; // we will loop until current.next is null
+        }
+        Node<T> newNode = new Node<T>(data);
+        current.nextNode = newNode;
+    }
+
 
 }
