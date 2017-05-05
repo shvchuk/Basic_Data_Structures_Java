@@ -15,8 +15,6 @@ public class App {
 
         System.out.println(list.size());
 
-        list.remove(adam);
-
         list.traverseList();
     }
 }

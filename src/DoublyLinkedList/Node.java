@@ -9,7 +9,15 @@ public class Node<T extends Comparable<T>> {
         this.data = data;
     }
 
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
     public void displayNode(){
-        System.out.println("{ " + data + " }");
+        System.out.print("{ " + data + " } ");
     }
 }
