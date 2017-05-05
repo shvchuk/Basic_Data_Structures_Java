@@ -1,8 +1,9 @@
 package DoublyLinkedList;
 
 public class DoublyLinkedList<T extends Comparable<T>> {
-    private Node<T> first;
-    private Node<T> last;
+    public Node<T> first;
+    public Node<T> last;
+    public int sizeOfList;
 
     public DoublyLinkedList() {
         this.first = null;
@@ -14,6 +15,9 @@ public class DoublyLinkedList<T extends Comparable<T>> {
     }
 
     public void insertFirst(T data){
+
+        ++this.sizeOfList;
+
         Node<T> newNode = new Node<T>(data);
 
         if(isEmpty()){
@@ -27,6 +31,9 @@ public class DoublyLinkedList<T extends Comparable<T>> {
     }
 
     public void insertLast(T data){
+
+        ++this.sizeOfList;
+
         Node<T> newNode = new Node<T>(data);
 
         if(isEmpty()){
@@ -42,6 +49,7 @@ public class DoublyLinkedList<T extends Comparable<T>> {
         if(isEmpty()){
             return null;
         } else {
+            --this.sizeOfList;
             Node<T> temp = first;
             if(first.nextNode == null){
                 last = null;
@@ -58,6 +66,7 @@ public class DoublyLinkedList<T extends Comparable<T>> {
         if(isEmpty()){
             return null;
         } else {
+            --this.sizeOfList;
             Node<T> temp = last;
             if(last.previousNode == null){
                 first = null;
@@ -74,6 +83,7 @@ public class DoublyLinkedList<T extends Comparable<T>> {
         if(isEmpty()) {
             return false;
         } else {
+            ++this.sizeOfList;
             Node<T> current = first;
             while(current.getData() != data){
                 current = current.nextNode;
@@ -101,6 +111,7 @@ public class DoublyLinkedList<T extends Comparable<T>> {
         if(isEmpty()) {
             return null;
         } else {
+            --this.sizeOfList;
             Node<T> current = first;
             while(current.getData() != data){
                 current = current.nextNode;
@@ -126,6 +137,11 @@ public class DoublyLinkedList<T extends Comparable<T>> {
         }
     }
 
+    public void clearList(){
+        this.first = null;
+        this.last = null;
+    }
+
     public void displayList(){
         System.out.print("List (first --> last): ");
         Node<T> current = first;
@@ -134,5 +150,9 @@ public class DoublyLinkedList<T extends Comparable<T>> {
             current = current.nextNode;
         }
         System.out.println();
+    }
+
+    public int size(){
+        return sizeOfList;
     }
 }
