@@ -83,6 +83,20 @@ public class AppTwoLists {
         System.out.print("Lista pierwsza po wstawieniu: ");
         listaPierwsza.displayList();
 
+        System.out.println("---- Konkatenacja List --------");
+        DoublyLinkedList listaUno = new DoublyLinkedList();
+        DoublyLinkedList listaDuo = new DoublyLinkedList();
+        listaUno.insertFirst(11);
+        listaUno.insertFirst(12);
+        listaUno.insertFirst(13);
+        listaDuo.insertFirst(21);
+        listaDuo.insertFirst(22);
+        listaDuo.insertFirst(23);
+        listaUno.displayList();
+        listaDuo.displayList();
+        konkatenacjaList(listaUno, listaDuo);
+        listaUno.displayList();
+
     }
 
     public static void wstawienieListNumerElementu(DoublyLinkedList listaJeden, DoublyLinkedList listaDwa,
@@ -119,6 +133,12 @@ public class AppTwoLists {
         listaDwa.first.previousNode = current.previousNode;
         listaDwa.last.nextNode = current;
         current.previousNode = listaDwa.last;
+    }
+
+    public static void konkatenacjaList(DoublyLinkedList listaJeden, DoublyLinkedList listaDwa){
+        listaJeden.last.nextNode = listaDwa.first;
+        listaDwa.first.previousNode = listaJeden.last;
+        listaJeden.last = listaDwa.last;
     }
 
 }
