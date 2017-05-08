@@ -110,10 +110,23 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
             }
 
             // case : removing node with two children
+            System.out.println("Removing node with two children.");
+            Node<T> tempNode = getPredecessor(node.getLeftChild());
 
+            node.setData(tempNode.getData());
+            node.setLeftChild( delete(node.getLeftChild(), tempNode.getData()));
         }
 
 
+        return node;
+    }
+
+    private Node<T> getPredecessor(Node<T> node) {
+
+        if( node.getRightChild() != null)
+            return getPredecessor(node.getRightChild());
+
+        System.out.println("Predecessor: " + node);
         return node;
     }
 

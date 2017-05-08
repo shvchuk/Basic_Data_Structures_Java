@@ -3,18 +3,20 @@ package BinarySearchTrees.BSTone;
 public class App {
     public static void main(String[] args) {
 
-        Tree<String> bst = new BinarySearchTree<>();
+        Tree<Integer> bst = new BinarySearchTree<>();
 
-        bst.insert("Adam");
-        bst.insert("Joe");
-        bst.insert("Michael");
-        bst.insert("Kevin");
-        bst.insert("Ola");
-        bst.insert("Kasia");
+        bst.insert(10);
+        bst.insert(5);
+        bst.insert(15);
+        bst.insert(3);
+        bst.insert(7);
 
         System.out.println(bst.getMaxValue());
         System.out.println(bst.getMinValue());
 
+        bst.traversal();
+
+        bst.delete(3);
         bst.traversal();
 
     }
