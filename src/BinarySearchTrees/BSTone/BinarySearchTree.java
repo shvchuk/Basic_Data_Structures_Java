@@ -33,6 +33,23 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
     @Override
     public void traversal() {
 
+        if (root != null){
+            inOrderTraversal(root);
+        }
+
+    }
+
+    private void inOrderTraversal(Node<T> node) {
+
+        if(node.getLeftChild() != null){
+            inOrderTraversal(node.getLeftChild());
+        }
+
+        System.out.print(node + " --> ");
+
+        if(node.getRightChild() != null){
+            inOrderTraversal(node.getRightChild());
+        }
     }
 
 
@@ -59,7 +76,45 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
 
     @Override
     public void delete(T data) {
+        
+        if(root != null)
+            root = delete(root, data);
 
+    }
+
+    private Node<T> delete(Node<T> node, T data) {
+
+        if(node == null) return node;
+
+        if(data.compareTo(node.getData()) < 0){
+            node.setLeftChild( delete(node.getLeftChild(), data));
+        } else if(data.compareTo(node.getData()) > 0){
+            node.setRightChild( delete(node.getRightChild(), data));
+        } else {
+            // we have found the node we want to remove
+            if( node.getLeftChild() == null && node.getRightChild() == null ){ // leaf node case
+                System.out.println("Removing leaf node.");
+                return null;
+            }
+
+            if ( node.getLeftChild() == null){
+                System.out.println("Removing the right child.");
+                Node<T> tempNode = node.getRightChild();
+                node = null;
+                return tempNode;
+            } else if( node.getRightChild() == null){
+                System.out.println("Removing the left child.");
+                Node<T> tempNode = node.getLeftChild();
+                node = null;
+                return tempNode;
+            }
+
+            // case : removing node with two children
+
+        }
+
+
+        return node;
     }
 
 
