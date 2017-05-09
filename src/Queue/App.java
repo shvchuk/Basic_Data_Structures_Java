@@ -1,4 +1,9 @@
 package Queue;
+/*  ZADANIE nr 1
+    bezpośrednia realizacja kolejki nieograniczonej
+    przy użyciu listy jednokierunkowej
+    implementacja od zera
+ */
 
 public class App {
 
@@ -30,6 +35,7 @@ public class App {
         System.out.println();
         System.out.println("Pierwszy element w kolejce --> " + kolejka.firstNode());
         System.out.println("Ostatni element w kolejce --> " + kolejka.lastNode());
+        System.out.println("Rozmiar kolejki: " + kolejka.size());
         System.out.println("*************************");
     }
 }
