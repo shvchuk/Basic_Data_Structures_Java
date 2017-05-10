@@ -12,10 +12,11 @@ public class AppUrzad {
         Urzednik urzednikB = new Urzednik(queue, "B");
         Urzednik urzednikC = new Urzednik(queue, "C");
 
-        new Thread(klient).start();
+
         new Thread(urzednikA).start();
         new Thread(urzednikB).start();
         new Thread(urzednikC).start();
+        new Thread(klient).start();
 
     }
 }

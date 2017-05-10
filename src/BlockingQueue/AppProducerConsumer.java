@@ -7,7 +7,7 @@ public class AppProducerConsumer {
 
     public static void main(String[] args) {
         // creating blocking queue of size 10
-        BlockingQueue<Message> queue = new ArrayBlockingQueue<>(10);
+        BlockingQueue<Message> queue = new ArrayBlockingQueue<>(5);
         Producer producer = new Producer(queue);
         Consumer consumer = new Consumer(queue);
 

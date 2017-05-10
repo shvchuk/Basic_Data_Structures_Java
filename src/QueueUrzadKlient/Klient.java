@@ -15,14 +15,14 @@ public class Klient  implements Runnable{
     @Override
     public void run() {
 
-        for(int i = 1; i < 101; i++){
+        for(int i = 1; i < 51; i++){
 
             Sprawa sprawa = new Sprawa(" "+i);
 
             try{
                 System.out.println("Przyszedł klient:" + sprawa.getSprawa());
                 queue.put(sprawa);
-                Thread.sleep(random.nextInt(3000)+1);
+                Thread.sleep(random.nextInt(300)+1);
             } catch (InterruptedException e){
                 e.printStackTrace();
             }

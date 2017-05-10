@@ -19,14 +19,16 @@ public class Urzednik implements Runnable{
 
     Random random = new Random();
 
+    int i = 1;
     @Override
     public void run() {
 
         try{
             Sprawa sprawa;
             while((sprawa = queue.take()).getSprawa() != "koniec"){
-                Thread.sleep(random.nextInt(3000)+1);
                 System.out.println("Urzędnik " + name + " zaczyna obsługę klienta: "+ sprawa.getSprawa());
+                Thread.sleep(i);
+                i = random.nextInt(2000)+1;
             }
         } catch (InterruptedException e){
             e.printStackTrace();
