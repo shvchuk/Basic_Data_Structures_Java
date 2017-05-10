@@ -12,5 +12,13 @@ public class App {
         myQueue.insert(400);
 
         myQueue.display();
+        System.out.println();
+        System.out.println("Removing the item from the queue.");
+        myQueue.remove();
+        System.out.println();
+        myQueue.display();
+        myQueue.remove();
+        myQueue.remove();
+        myQueue.display();
     }
 }

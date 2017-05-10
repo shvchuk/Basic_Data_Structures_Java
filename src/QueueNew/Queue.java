@@ -18,6 +18,11 @@ public class Queue {
 
     // putting items into the end of the queue
     public void insert(long data){
+
+        if(isFull()){
+            System.out.println("Queue is full.");
+            return;
+        }
         rear++;
         queArray[rear] = data;
         numberOfItems++;
@@ -37,6 +42,13 @@ public class Queue {
         return queArray[front];
     }
 
+    public boolean isEmpty(){
+        return (numberOfItems == 0);
+    }
+
+    public boolean isFull(){
+        return (numberOfItems == maxSize);
+    }
 
     public void display(){
         System.out.print("[ ");
