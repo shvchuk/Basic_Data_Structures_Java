@@ -22,15 +22,6 @@ public class App {
 
         BTreePrinter.printNode(bst.getRoot());
 
-        bst.insert(20);
-        bst.insert(2);
-        bst.insert(22);
-        bst.insert(23);
-        bst.insert(24);
-
-        System.out.println();
-
-        BTreePrinter.printNode(bst.getRoot());
 
     }
 }

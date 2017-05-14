@@ -1,8 +1,12 @@
 package RedBlackTree;
 
-public class RedBlackTree implements Tree{
+public class RedBlackTree<T extends Comparable<T>> implements Tree<T>{
 
-    private Node root;
+    public Node<T> root;
+
+    public Node<T> getRoot() {
+        return root;
+    }
 
     @Override
     public void traverse() {
@@ -13,7 +17,7 @@ public class RedBlackTree implements Tree{
 
     }
 
-    private void inOrderTraversal(Node node) {
+    private void inOrderTraversal(Node<T> node) {
         if(node.getLeftChild() != null){
             inOrderTraversal(node.getLeftChild());
         }
@@ -25,10 +29,10 @@ public class RedBlackTree implements Tree{
         }
     }
 
-    private void rightRotate(Node node){
+    private void rightRotate(Node<T> node){
         System.out.println("Rotating to the right on Node " + node);
 
-        Node tempLeftNode = node.getLeftChild();
+        Node<T> tempLeftNode = node.getLeftChild();
         node.setLeftChild(tempLeftNode.getRightChild());
 
         if( node.getLeftChild() != null ){
@@ -49,10 +53,10 @@ public class RedBlackTree implements Tree{
         node.setParent(tempLeftNode);
     }
 
-    private void leftRotate(Node node){
+    private void leftRotate(Node<T> node){
         System.out.println("Rotating to the left on Node " + node);
 
-        Node tempRightNode = node.getRightChild();
+        Node<T> tempRightNode = node.getRightChild();
         node.setRightChild(tempRightNode.getLeftChild());
 
         if( node.getRightChild() != null ){
@@ -74,19 +78,19 @@ public class RedBlackTree implements Tree{
     }
 
     @Override
-    public void insert(int data) {
+    public void insert(T data) {
 
-        Node node = new Node(data);
+        Node<T> node = new Node<T>(data);
 
         root = insertIntoTree(root, node);
 
         fixViolations(node);
     }
 
-    private void fixViolations(Node node) {
+    private void fixViolations(Node<T> node) {
 
-        Node parentNode = null;
-        Node grandParentNode = null;
+        Node<T> parentNode = null;
+        Node<T> grandParentNode = null;
 
         while( node != root && node.getColor() != NodeColor.BLACK && node.getParent().getColor() == NodeColor.RED ){
             parentNode = node.getParent();
@@ -94,7 +98,7 @@ public class RedBlackTree implements Tree{
 
             if( parentNode == grandParentNode.getLeftChild()){
 
-                Node uncle = grandParentNode.getRightChild();
+                Node<T> uncle = grandParentNode.getRightChild();
 
                 if( uncle != null && uncle.getColor() == NodeColor.RED){
 
@@ -118,7 +122,7 @@ public class RedBlackTree implements Tree{
                 }
             } else {
 
-                Node uncle = grandParentNode.getLeftChild();
+                Node<T> uncle = grandParentNode.getLeftChild();
 
                 if( uncle != null && uncle.getColor() == NodeColor.RED){
                     grandParentNode.setColor(NodeColor.RED);
@@ -148,14 +152,14 @@ public class RedBlackTree implements Tree{
 
     }
 
-    private Node insertIntoTree(Node root, Node node) {
+    private Node<T> insertIntoTree(Node<T> root, Node<T> node) {
 
         if(root == null) return node;
 
-        if(node.getData() < root.getData()) {
+        if(node.getData().compareTo(root.getData()) < 0) {
             root.setLeftChild( insertIntoTree(root.getLeftChild(), node));
             root.getLeftChild().setParent(root);
-        } else if(node.getData() > root.getData()){
+        } else if(node.getData().compareTo(root.getData()) > 0){
             root.setRightChild( insertIntoTree(root.getRightChild(), node));
             root.getRightChild().setParent(root);
         }

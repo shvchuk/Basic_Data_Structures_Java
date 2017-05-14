@@ -1,30 +1,28 @@
 package RedBlackTree;
 
-public class Node {
+public class Node<T> {
 
-    private int data;
+    private T data;
     private NodeColor color;
-    private Node leftChild;
-    private Node rightChild;
-    private Node parent;
+    private Node<T> leftChild;
+    private Node<T> rightChild;
+    private Node<T> parent;
 
-    public Node(int data){
+    public Node(T data){
         this.data = data;
         this.color = NodeColor.RED;
     }
 
     @Override
     public String toString() {
-        return "d= " + data +
-                ", c= " + color +
-                '}';
+        return this.data.toString();
     }
 
-    public int getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(int data) {
+    public void setData(T data) {
         this.data = data;
     }
 
@@ -36,27 +34,27 @@ public class Node {
         this.color = color;
     }
 
-    public Node getLeftChild() {
+    public Node<T> getLeftChild() {
         return leftChild;
     }
 
-    public void setLeftChild(Node leftChild) {
+    public void setLeftChild(Node<T> leftChild) {
         this.leftChild = leftChild;
     }
 
-    public Node getRightChild() {
+    public Node<T> getRightChild() {
         return rightChild;
     }
 
-    public void setRightChild(Node rightChild) {
+    public void setRightChild(Node<T> rightChild) {
         this.rightChild = rightChild;
     }
 
-    public Node getParent() {
+    public Node<T> getParent() {
         return parent;
     }
 
-    public void setParent(Node parent) {
+    public void setParent(Node<T> parent) {
         this.parent = parent;
     }
 }
