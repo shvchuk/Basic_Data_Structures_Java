@@ -2,7 +2,11 @@ package BinarySearchTrees.BSTone;
 
 public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
 
-    private Node<T> root;
+    public Node<T> root;
+
+    public Node<T> getRoot() {
+        return root;
+    }
 
     @Override
     public void insert(T data){
@@ -93,6 +97,7 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
         } else {
             // we have found the node we want to remove
             if( node.getLeftChild() == null && node.getRightChild() == null ){ // leaf node case
+                System.out.println();
                 System.out.println("Removing leaf node.");
                 return null;
             }

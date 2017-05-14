@@ -1,23 +1,36 @@
 package BinarySearchTrees.BSTone;
 
+import BSTPrinter.BTreePrinter;
+
 public class App {
     public static void main(String[] args) {
 
-        Tree<Integer> bst = new BinarySearchTree<>();
+        BinarySearchTree bst = new BinarySearchTree();
 
         bst.insert(10);
         bst.insert(5);
         bst.insert(15);
         bst.insert(3);
         bst.insert(7);
-
-        System.out.println(bst.getMaxValue());
-        System.out.println(bst.getMinValue());
-
         bst.traversal();
+        System.out.println();
 
-        bst.delete(3);
-        bst.traversal();
+        BTreePrinter.printNode(bst.getRoot());
+
+        bst.delete(5);
+        System.out.println();
+
+        BTreePrinter.printNode(bst.getRoot());
+
+        bst.insert(20);
+        bst.insert(2);
+        bst.insert(22);
+        bst.insert(23);
+        bst.insert(24);
+
+        System.out.println();
+
+        BTreePrinter.printNode(bst.getRoot());
 
     }
 }

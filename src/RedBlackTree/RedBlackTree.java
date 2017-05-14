@@ -101,6 +101,7 @@ public class RedBlackTree implements Tree{
                     grandParentNode.setColor(NodeColor.RED);
                     parentNode.setColor(NodeColor.BLACK);
                     uncle.setColor(NodeColor.BLACK);
+                    node = grandParentNode;
                 } else {
 
                     if( node == parentNode.getRightChild()){
@@ -115,7 +116,34 @@ public class RedBlackTree implements Tree{
                     grandParentNode.setColor(tempColor);
                     node = parentNode;
                 }
+            } else {
+
+                Node uncle = grandParentNode.getLeftChild();
+
+                if( uncle != null && uncle.getColor() == NodeColor.RED){
+                    grandParentNode.setColor(NodeColor.RED);
+                    parentNode.setColor(NodeColor.BLACK);
+                    uncle.setColor(NodeColor.BLACK);
+                    node = grandParentNode;
+                } else {
+
+                    if( node == parentNode.getLeftChild()) {
+                        rightRotate(parentNode);
+                        node = parentNode;
+                        parentNode = node.getParent();
+                    }
+
+                    leftRotate(grandParentNode);
+                    NodeColor tempColor = parentNode.getColor();
+                    parentNode.setColor(grandParentNode.getColor());
+                    grandParentNode.setColor(tempColor);
+                    node = parentNode;
+                }
             }
+        }
+
+        if(root.getColor() == NodeColor.RED ){
+            root.setColor(NodeColor.BLACK);
         }
 
     }
