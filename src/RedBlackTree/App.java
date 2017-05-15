@@ -30,6 +30,7 @@ public class App {
         System.out.println();
         RedBlackPrinter.printNode(redBlackTree.getRoot());
         System.out.println();
+        System.out.println("Wysokosc drzewa wynosi: " + redBlackTree.findHeight(redBlackTree.getRoot()));
 
 
         System.out.println("***************************************");

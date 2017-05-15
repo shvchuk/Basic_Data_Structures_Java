@@ -8,6 +8,19 @@ public class RedBlackTree<T extends Comparable<T>> implements Tree<T>{
         return root;
     }
 
+    public int findHeight(Node<T> root){
+        if ( root == null) return -1;
+
+        int leftH = findHeight(root.getLeftChild());
+        int rightH = findHeight(root.getRightChild());
+
+        if(leftH > rightH){
+            return leftH + 1;
+        } else {
+            return rightH + 1;
+        }
+    }
+
     @Override
     public void traverse() {
 
@@ -30,7 +43,7 @@ public class RedBlackTree<T extends Comparable<T>> implements Tree<T>{
     }
 
     private void rightRotate(Node<T> node){
-        System.out.println("Rotating to the right on Node " + node);
+        //System.out.println("Rotating to the right on Node " + node);
 
         Node<T> tempLeftNode = node.getLeftChild();
         node.setLeftChild(tempLeftNode.getRightChild());
@@ -54,7 +67,7 @@ public class RedBlackTree<T extends Comparable<T>> implements Tree<T>{
     }
 
     private void leftRotate(Node<T> node){
-        System.out.println("Rotating to the left on Node " + node);
+        //System.out.println("Rotating to the left on Node " + node);
 
         Node<T> tempRightNode = node.getRightChild();
         node.setRightChild(tempRightNode.getLeftChild());

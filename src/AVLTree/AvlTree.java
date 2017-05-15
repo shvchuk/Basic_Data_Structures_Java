@@ -2,7 +2,24 @@ package AVLTree;
 
 public class AvlTree<T extends Comparable<T>> implements Tree<T> {
 
-    private Node<T> root;
+    public Node<T> root;
+
+    public Node<T> getRoot() {
+        return root;
+    }
+
+    public int findHeight(Node<T> root){
+        if ( root == null) return -1;
+
+        int leftH = findHeight(root.getLeftChild());
+        int rightH = findHeight(root.getRightChild());
+
+        if(leftH > rightH){
+            return leftH + 1;
+        } else {
+            return rightH + 1;
+        }
+    }
 
     @Override
     public void insert(T data) {
@@ -42,12 +59,24 @@ public class AvlTree<T extends Comparable<T>> implements Tree<T> {
             return leftRotation(node);
         }
 
+        // Case III - left-right heavy situation
+        if(balance > 1 && data.compareTo(node.getLeftChild().getData()) > 0){
+            node.setLeftChild(leftRotation(node.getLeftChild()));
+            return rightRotation(node);
+        }
+
+        // Case IV - right left heavy situation
+        if(balance < -1 && data.compareTo(node.getLeftChild().getData()) < 0){
+            node.setRightChild(rightRotation(node.getRightChild()));
+            return leftRotation(node);
+        }
+
         return node;
     }
 
     private Node<T> rightRotation(Node<T> node){
 
-        System.out.println("Rotating to the right...");
+        //System.out.println("Rotating to the right on node: " + node.toString());
 
         Node<T> tempLeftNode = node.getLeftChild();
         Node<T> t = tempLeftNode.getRightChild();
@@ -63,7 +92,7 @@ public class AvlTree<T extends Comparable<T>> implements Tree<T> {
 
     private Node<T> leftRotation(Node<T> node){
 
-        System.out.println("Rotating to the left...");
+        //System.out.println("Rotating to the left on node: " + node.toString());
 
         Node<T> tempRightNode = node.getRightChild();
         Node<T> t = tempRightNode.getLeftChild();
