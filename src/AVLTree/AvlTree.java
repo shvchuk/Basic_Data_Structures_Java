@@ -6,7 +6,43 @@ public class AvlTree<T extends Comparable<T>> implements Tree<T> {
 
     @Override
     public void insert(T data) {
+        root = insert(root, data);
+    }
 
+    private Node<T> insert(Node<T> node, T data) {
+
+        if( node == null) {
+            return new Node<>(data);
+        }
+
+        if(data.compareTo(node.getData()) < 0){
+            node.setLeftChild( insert(node.getLeftChild(), data) );
+        } else {
+            node.setRightChild( insert(node.getRightChild(), data) );
+        }
+
+        node.setHeight( Math.max( height(node.getLeftChild()), height(node.getRightChild())) + 1);
+
+        node = settleViolation(data, node);
+
+        return node;
+    }
+
+    private Node<T> settleViolation(T data, Node<T> node) {
+
+        int balance = getBalance(node);
+
+        // Case I:
+        if(balance > 1 && data.compareTo(node.getLeftChild().getData()) < 0){
+            return rightRotation(node);
+        }
+
+        // Case II:
+        if(balance < -1 && data.compareTo(node.getRightChild().getData()) > 0){
+            return leftRotation(node);
+        }
+
+        return node;
     }
 
     private Node<T> rightRotation(Node<T> node){

@@ -26,7 +26,7 @@ public class RedBlackPrinter {
         List<Node<T>> newNodes = new ArrayList<Node<T>>();
         for (Node<T> node : nodes) {
             if (node != null) {
-                System.out.print(node.getData());
+                System.out.print(node.getData()); //+" " +node.getColor().toString());
                 newNodes.add(node.getLeftChild());
                 newNodes.add(node.getRightChild());
             } else {
