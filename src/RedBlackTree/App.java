@@ -13,9 +13,9 @@ public class App {
         RedBlackPrinter.printNode(redBlackTree.getRoot());
 
         redBlackTree.insert(35);
-        redBlackTree.insert(40);
-        redBlackTree.insert(45);
-        redBlackTree.insert(50);
+        redBlackTree.insert(25);
+        redBlackTree.insert(15);
+        redBlackTree.insert(8);
         System.out.println();
 
         RedBlackPrinter.printNode(redBlackTree.getRoot());

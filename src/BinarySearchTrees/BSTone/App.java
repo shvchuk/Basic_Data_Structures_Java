@@ -15,12 +15,23 @@ public class App {
         bst.traversal();
         System.out.println();
 
+
         BTreePrinter.printNode(bst.getRoot());
 
         bst.delete(5);
         System.out.println();
 
         BTreePrinter.printNode(bst.getRoot());
+
+        bst.insert(8);
+        BTreePrinter.printNode(bst.getRoot());
+        bst.delete(3);
+        BTreePrinter.printNode(bst.getRoot());
+
+        bst.delete(10);
+
+        BTreePrinter.printNode(bst.getRoot());
+
 
 
     }
