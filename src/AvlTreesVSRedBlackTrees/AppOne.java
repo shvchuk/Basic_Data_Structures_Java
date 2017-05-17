@@ -1,6 +1,7 @@
 package AvlTreesVSRedBlackTrees;
 
 import AVLTree.AvlTree;
+import BinarySearchTrees.BSTone.BinarySearchTree;
 import RedBlackTree.RedBlackTree;
 
 public class AppOne {
@@ -8,12 +9,14 @@ public class AppOne {
 
         AvlTree avlTree = new AvlTree();
         RedBlackTree redBlackTree = new RedBlackTree();
+        BinarySearchTree bst = new BinarySearchTree();
 
         int numberOfNodes = 0;
 
-        for(int i = 1; i < 10000001; i++){
+        for(int i = 1; i < 10001; i++){
             avlTree.insert(i);
             redBlackTree.insert(i);
+            bst.insert(i);
             numberOfNodes++;
         }
 
@@ -32,5 +35,7 @@ public class AppOne {
         System.out.println("Maksymalna dopuszczalna wysokosc drzewa RedBlack dla " + numberOfNodes + " wierzcholków " +
                 "wynosi -> " + maxWysokoscRBT);
         System.out.println();
+
+        System.out.println("Wysokość drzewa BST: " + bst.findHeight(bst.getRoot()));
     }
 }

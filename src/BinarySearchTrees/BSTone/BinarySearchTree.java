@@ -8,6 +8,19 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
         return root;
     }
 
+    public int findHeight(Node<T> root){
+        if ( root == null) return -1;
+
+        int leftH = findHeight(root.getLeftChild());
+        int rightH = findHeight(root.getRightChild());
+
+        if(leftH > rightH){
+            return leftH + 1;
+        } else {
+            return rightH + 1;
+        }
+    }
+
     @Override
     public void insert(T data){
 
