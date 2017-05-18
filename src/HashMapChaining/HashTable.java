@@ -4,6 +4,10 @@ public class HashTable {
 
     private HashItem[] hashTable;
 
+    public HashTable(){
+        hashTable = new HashItem[Constants.TABLE_SIZE];
+    }
+
     public int get(int key){
 
         int generatedArrayIndex = hash(key);
@@ -31,15 +35,18 @@ public class HashTable {
         int hashArrayIndex = hash(key);
 
         if(hashTable[hashArrayIndex] == null){
+            System.out.println("No collision case -> simple insertion into the hash table.");
             hashTable[hashArrayIndex] = new HashItem(key, value);
         } else { // Collision case
-
+            System.out.println("Insertion collision case with key: " + key);
             HashItem hashItem = hashTable[hashArrayIndex];
 
             while(hashItem.getNextHashItem() != null) {
                 hashItem = hashItem.getNextHashItem();
+                System.out.println("Considering the next item in linked list: " + hashItem.getValue());
             }
 
+            System.out.println("The place to insert new item in linked list was found.");
             hashItem.setNextHashItem(new HashItem(key, value));
         }
     }
