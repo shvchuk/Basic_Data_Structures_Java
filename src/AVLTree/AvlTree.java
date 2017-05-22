@@ -1,5 +1,9 @@
 package AVLTree;
 
+/* Implementacja drzew AVL.
+
+ */
+
 public class AvlTree<T extends Comparable<T>> implements Tree<T> {
 
     public Node<T> root;
@@ -139,7 +143,7 @@ public class AvlTree<T extends Comparable<T>> implements Tree<T> {
             inOrderTraversal(node.getLeftChild());
         }
 
-        System.out.println(node);
+        System.out.print(node+" ");
 
         if(node.getRightChild() != null){
             inOrderTraversal(node.getRightChild());
