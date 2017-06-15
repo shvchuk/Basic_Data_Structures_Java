@@ -5,7 +5,7 @@ public class App {
 
         ExpressionCalculator calculator = new ExpressionCalculator();
 
-        calculator.calculateExpression("( 10 - 4 ) / ( 2 )");
+        calculator.calculateExpression("( 12 - 4 ) / ( 2 )");
 
         calculator.result();
 
