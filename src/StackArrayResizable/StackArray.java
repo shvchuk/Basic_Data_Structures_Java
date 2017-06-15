@@ -1,4 +1,4 @@
-package StackArrayG;
+package StackArrayResizable;
 
 public class StackArray<T> {
 
@@ -11,11 +11,13 @@ public class StackArray<T> {
 
     public void push(T newData){
 
-        if (numOfItems == this.stack.length){
+        if (numOfItems == (3 * this.stack.length) / 4){
+            System.out.println("Resizing X 2 the Stack Array.");
             resize(2*this.stack.length);
         }
 
         this.stack[numOfItems++] = newData;
+        System.out.println("New item PUSHED on the stack: "+ newData.toString());
     }
 
     public T pop(){
@@ -23,6 +25,7 @@ public class StackArray<T> {
         T itemToPop = this.stack[--numOfItems];
 
         if (numOfItems > 0 && numOfItems == this.stack.length / 4){
+            System.out.println("Resizing / 2 the Stack Array.");
             resize(this.stack.length / 2);
         }
 
@@ -36,6 +39,8 @@ public class StackArray<T> {
     public int size(){
         return numOfItems;
     }
+
+    public int stackArraysize(){ return this.stack.length; }
 
     private void resize(int capacity){
 

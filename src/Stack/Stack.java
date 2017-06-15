@@ -14,10 +14,11 @@ public class Stack {
 
     public void push(long j){
         if(isFull()){
-            System.out.println("this stack is full");
+            System.out.println("Can't add { " + j + " } on the Stack. The Stack if full.");
         } else {
             top++;
             stackArray[top] = j;
+            System.out.println("Pushed { " + j + " } on the Stack.");
         }
     }
 
