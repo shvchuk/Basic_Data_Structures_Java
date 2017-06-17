@@ -20,9 +20,16 @@ public class App {
         myMatrix.addEdge(1, 2);
         myMatrix.addEdge(1, 3);
         myMatrix.addEdge(2, 4);
-        myMatrix.addEdge(2, 5);
+        myMatrix.addEdge(5, 1);
+        myMatrix.addEdge(5, 0);
+        myMatrix.addEdge(4, 5);
+        myMatrix.addEdge(5, 2);
 
         System.out.println(myMatrix.toString());
+        System.out.println();
+        System.out.println("<------ BFS traversal ------------------------------->");
+        myMatrix.bfs(0);
+        System.out.println("\n<---------------------------------------------------->");
         System.out.println();
         System.out.println("******** Graph implemented with List adjacency *******");
 
