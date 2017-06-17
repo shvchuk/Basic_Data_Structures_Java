@@ -27,8 +27,10 @@ public class App {
 
         System.out.println(myMatrix.toString());
         System.out.println();
-        System.out.println("<------ BFS traversal ------------------------------->");
+        System.out.println("<------------------------------------------------------>");
         myMatrix.bfs(0);
+        System.out.println("\n<---------------------------------------------------->");
+        myMatrix.dfs(0);
         System.out.println("\n<---------------------------------------------------->");
         System.out.println();
         System.out.println("******** Graph implemented with List adjacency *******");

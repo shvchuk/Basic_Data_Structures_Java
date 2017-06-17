@@ -16,8 +16,9 @@ public class HashFunction {
 
         //theFunc.hashFunction1(elementsToAdd, theFunc.theArray);
 
-        String[] elementsToAdd2 = {"100", "23", "24", "53", "233", "223", "223", "323", "423", "43", "26", "54", "65", "56", "534", "342", "34", "55", "5362",
-                "243", "562", "7635", "1332", "634", "14", "224", "564", "6454", "2634", "43352"};
+        String[] elementsToAdd2 = {"100", "23", "24", "53", "233", "223", "223", "323", "423", "43", "26", "54", "65", "56", "534", "342", "34", "55", "532",
+                "243", "562", "735"};
+        // "1332", "634", "14", "224", "564", "6454", "2634", "43352"};
 
         theFunc.hashFunction2(elementsToAdd2, theFunc.theArray);
 
@@ -52,9 +53,8 @@ public class HashFunction {
             }
 
             System.out.println("|");
-
-            for(int n = 0; n < 71; n++) System.out.print("-");
         }
+        for(int n = 0; n < 71; n++) System.out.print("-");
     }
 
     public void hashFunction1(String[] stringsForArray, String[] theArray){

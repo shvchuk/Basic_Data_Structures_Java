@@ -1,9 +1,6 @@
 package GraphAbstract;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class GraphAdjMatrix extends Graph {
 
@@ -78,6 +75,39 @@ public class GraphAdjMatrix extends Graph {
                 }
                 i++;
             }
+        }
+    }
+
+    public void dfs(int source){
+
+        System.out.println("DFS traversal of the graph starting at vertex: " + source);
+
+        Stack<Integer> stack = new Stack<Integer>();
+
+        int vertices = getNumVertices();
+        int visited[] = new int[vertices];
+        int element = source;
+        int i = source;
+        System.out.print(element + "\t");
+        visited[source] = 1;
+        stack.push(source);
+
+        while(!stack.isEmpty()){
+
+            element = stack.peek();
+            i = element;
+            while(i <= vertices){
+                if( adjMatrix[element][i] == 1 && visited[i] == 0){
+                    stack.push(i);
+                    visited[i] = 1;
+                    element = i;
+                    i = 1;
+                    System.out.print(element + "\t");
+                    continue;
+                }
+                i++;
+            }
+            stack.pop();
         }
     }
 }
