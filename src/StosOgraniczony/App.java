@@ -21,5 +21,11 @@ public class App {
 
         System.out.println("Current Stack size: " + myStack.size());
 
+        myStack.clear();
+
+        System.out.println("pop " + myStack.pop());
+        System.out.println("pop " + myStack.pop());
+        System.out.println("Current Stack size: " + myStack.size());
+
     }
 }

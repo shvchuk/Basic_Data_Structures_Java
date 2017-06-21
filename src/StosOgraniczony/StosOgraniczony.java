@@ -47,4 +47,12 @@ public class StosOgraniczony<T extends Comparable<T>> {
     private boolean isEmpty() {
         return this.root == null;
     }
+
+    public void clear(){
+        if ( !isEmpty() ) {
+            this.root.setNextNode(null);
+            this.root = null;
+            this.currentSize = 0;
+        }
+    }
 }
