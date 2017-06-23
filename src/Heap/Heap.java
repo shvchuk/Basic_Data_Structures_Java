@@ -16,7 +16,7 @@ public class Heap {
             throw new RuntimeException("Heap is full.");
         }
 
-        this.heap[++currentPosition] = item;
+        this.heap[++this.currentPosition] = item;
         fixUp(currentPosition);
     }
 
@@ -41,6 +41,21 @@ public class Heap {
         fixDown(0, -1);
 
         return result;
+    }
+
+    public void heapsort(){
+
+        System.out.print("Sorted heap: ");
+
+        for(int i = 0; i <= currentPosition; i++){
+
+            int temp = heap[0];
+            System.out.print(temp + " ");
+            heap[0] = heap[currentPosition-i];
+            heap[currentPosition-i] = temp;
+            fixDown(0,currentPosition-i-1);
+        }
+        System.out.println();
     }
 
     private void fixDown(int index, int upTo) {
@@ -74,8 +89,10 @@ public class Heap {
     }
 
     private boolean isFull() {
-        return this.currentPosition == this.heap.length;
+        return this.currentPosition == this.heap.length - 1;
     }
+
+
 }
 
 
