@@ -1,6 +1,6 @@
 package HeapNew;
 
-public class App {
+public class AppMinHeap {
 
     public static void main(String[] args) throws Heap.HeapFullException, Heap.HeapEmptyException {
 
